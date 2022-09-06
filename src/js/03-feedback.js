@@ -77,10 +77,16 @@ function savedRecords() {
     // undefined - ввел символ, удалил и перезапустил страницу
     if (haveStorage.email) {
       refs.input.value = haveStorage.email;
+      formData['email'] = haveStorage.email;
+      const modifiedFormData = JSON.stringify(formData);
+      localStorage.setItem(STORAGE_KEY, modifiedFormData);
     }
 
     if (haveStorage.message) {
       refs.textarea.value = haveStorage.message;
+      formData['message'] = haveStorage.message;
+      const modifiedFormData = JSON.stringify(formData);
+      localStorage.setItem(STORAGE_KEY, modifiedFormData);
     }
   }
 }
